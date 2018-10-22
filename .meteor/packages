@@ -1,0 +1,26 @@
+# Meteor packages used by this project, one per line.
+
+# meteor
+# static-html
+# standard-minifier-css
+# standard-minifier-js
+# es5-shim
+# ecmascript
+# shell-server
+# webapp
+# server-render
+# mongo
+# email
+# check
+# underscore
+# http
+# random
+# fourseven:scss
+# reactive-var
+# tracker
+# dynamic-import
+# mdg:validated-method
+# aldeed:collection2
+# aldeed:simple-schema
+
+core
