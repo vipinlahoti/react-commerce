@@ -1,0 +1,19 @@
+/*
+ *
+ * {{ properCase name }} actions
+ *
+ */
+
+import { DEFAULT_ACTION_REQUESTED, DEFAULT_ACTION } from './constants';
+
+export function defaultAction = () => {
+  return dispatch => {
+    dispatch({
+      type: DEFAULT_ACTION_REQUESTED,
+    })
+
+    dispatch({
+      type: DEFAULT_ACTION,
+    })
+  };
+}

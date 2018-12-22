@@ -14,7 +14,8 @@
     "lint:css": "stylelint './src/**/*.js'",
     "lint:js": "npm run lint:eslint -- . ",
     "lint:staged": "lint-staged",
-    "prettify": "prettier --write"
+    "prettify": "prettier --write",
+    "generate": "plop --plopfile generators/index.js"
   },
   "dependencies": {
     "@loadable/component": "^5.2.2",

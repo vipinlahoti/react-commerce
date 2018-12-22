@@ -1,0 +1,66 @@
+/*
+ *
+ * {{properCase name }}
+ *
+ */
+
+import React from 'react';
+import PropTypes from 'prop-types';
+{{#if wantHeaders}}
+import { Helmet } from 'react-helmet';
+{{/if}}
+{{#if wantActionsAndReducer}}
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { defaultAction } from './actions';
+{{/if}}
+
+export class {{ properCase name }} extends React.{{{ component }}} {
+
+  static propTypes = {
+    {{#if wantActionsAndReducer}}
+    dispatch: PropTypes.func.isRequired,
+    {{/if}}
+  };
+
+  render() {
+    return (
+      <div>
+      {{#if wantHeaders}}
+        <Helmet>
+          <title>{{properCase name}}</title>
+          <meta
+            name="description"
+            content="Description of {{properCase name}}"
+          />
+        </Helmet>
+      {{/if}}
+
+      </div>
+    );
+  }
+}
+
+{{#if wantActionsAndReducer}}
+const mapStateToProps = ({{{camelCase name}}}) => ({
+
+});
+
+const mapDispatchToProps = dispatch => 
+  bindActionCreators(
+    {
+      increment
+    },
+    dispatch
+  )
+}
+{{/if}}
+
+{{#if wantActionsAndReducer}}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)({{ properCase name }});
+{{else}}
+export default {{ properCase name }};
+{{/if}}
