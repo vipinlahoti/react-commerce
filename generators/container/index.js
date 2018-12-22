@@ -34,7 +34,7 @@ module.exports = {
     {
       type: 'confirm',
       name: 'wantHeaders',
-      default: false,
+      default: true,
       message: 'Do you want headers?',
     },
     {

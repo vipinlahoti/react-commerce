@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import { Header } from 'components';
-import { HomePage, AboutPage } from 'containers';
+import { LoginPage, AboutPage } from 'containers';
 
 const styles = theme => ({
   '@global': {
@@ -75,7 +75,7 @@ class App extends Component {
 
         <main className={classes.content}>
           <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/" component={LoginPage} />
             <Route exact path="/about-us" component={AboutPage} />
           </Switch>
         </main>
