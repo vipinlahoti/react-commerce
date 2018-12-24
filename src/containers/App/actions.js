@@ -22,7 +22,7 @@ import * as Constants from './constants';
  *
  * @return {object} An action object with a type of ACTION_CONSTANT
  */
-export const loginRequest = data => {
+export const loginRequest = (data, history) => {
   return async (dispatch) => {
     dispatch({
       type: Constants.LOGIN_REQUEST,
@@ -35,6 +35,7 @@ export const loginRequest = data => {
       dispatch({
         type: Constants.LOGIN_REQUEST_SUCCESS
       });
+      history.push('/home');
 
     } catch(error) {
       dispatch({

@@ -4,7 +4,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -30,6 +31,19 @@ class Header extends React.Component {
     classes: PropTypes.object.isRequired,
   }
 
+  appBarLinks() {
+    if (this.props.authenticated) {
+      return [
+        <Button key="home" component={Link} color="inherit" to="/home">Home</Button>,
+        <Button key="signout" component={Link} color="inherit" to="/signout">Sign out</Button>
+      ];
+    }
+    return [
+      <Button key="signin" component={Link} color="inherit" to="/signin">Sign in</Button>,
+      <Button key="signup" component={Link} color="inherit" to="/signup">Sign up</Button>
+    ];
+  }
+
   render() {
     const classes = this.props.classes;
 
@@ -39,11 +53,17 @@ class Header extends React.Component {
           <Typography variant="h6" className={classes.grow}>
             <Link to="/">rCommerce</Link>
           </Typography>
-          <Button color="inherit">Login</Button>
+          {this.appBarLinks()}
         </Toolbar>
       </AppBar>
     );
   }
 }
 
-export default withStyles(styles)(Header);
+const mapStateToProps = ({ loginReducer }) => ({
+  authenticated: loginReducer.authenticated
+});
+
+// export default withStyles(styles)(Header);
+
+export default withStyles(styles)(connect(mapStateToProps)(Header));

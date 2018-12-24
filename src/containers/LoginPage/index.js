@@ -8,11 +8,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { reduxForm } from 'redux-form';
 import { loginRequest } from 'containers/App/actions';
-import { LOGIN_FORM } from './constants';
 import { LoginForm } from 'components';
+
+import { LOGIN_FORM } from './constants';
 import validate from './validate';
 
 // Redix Form
@@ -29,8 +30,18 @@ export class LoginPage extends Component {
 
   handleLogin = value => {
     // console.log(value)
-    this.props.loginRequest(value);
+    this.props.loginRequest(value, this.props.history);
   };
+
+  errorMessage() {
+    if (this.props.errorMessage) {
+      return (
+        <div className="info-red">
+          {this.props.errorMessage}
+        </div>
+      );
+    }
+  }
 
   render() {
 
@@ -45,6 +56,8 @@ export class LoginPage extends Component {
         </Helmet>
 
         <LoginFormEnhanced onSubmit={this.handleLogin}/>
+
+        {this.errorMessage()}
       </div>
     );
   }
@@ -52,20 +65,19 @@ export class LoginPage extends Component {
 
 const mapStateToProps = ({ loginReducer }) => ({
   loading: loginReducer.loading,
-  authenticated: loginReducer.authenticated
+  authenticated: loginReducer.authenticated,
+  errorMessage: loginReducer.error
 });
 
-// const mapDispatchToProps = dispatch => 
-//   bindActionCreators(
-//     {
-//       loginRequest
-//     },
-//     dispatch
-//   )
+const mapDispatchToProps = dispatch => 
+  bindActionCreators(
+    {
+      loginRequest
+    },
+    dispatch
+  )
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(LoginPage);
-
-export default connect(mapStateToProps, { loginRequest })(LoginPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginPage);
