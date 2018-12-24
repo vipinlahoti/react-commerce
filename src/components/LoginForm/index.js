@@ -49,17 +49,13 @@ const styles = theme => ({
 class LoginForm extends React.Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
-    handleSubmit: PropTypes.func,
+    onSubmit: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func
   }
 
-  handleLoginForm = e => {
-    e.preventDefault();
-
-    // if (this.state.username.length === 0 || this.state.password.length === 0) {
-    //   return;
-    // }
-
-    // this.props.handleFormSubmit({ ...this.state });
+  handleLoginForm = (value) => {
+    console.log('value - ', value);
+    this.props.onSubmit({ email: value.email, password: value.password });
   };
 
   render() {
@@ -67,7 +63,7 @@ class LoginForm extends React.Component {
 
     return (
       <Paper className={classes.root} elevation={1}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(this.handleLoginForm)}>
           <Field
             name="email"
             type="email"
