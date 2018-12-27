@@ -16,8 +16,8 @@ module.exports = plop => {
   plop.addHelper('directory', comp => {
     try {
       fs.accessSync(
-        path.join(__dirname, `../src/containers/${comp}`),
-        fs.F_OK,
+        path.join(__dirname, `../containers/${comp}`),
+        fs.F_OK
       );
       return `containers/${comp}`;
     } catch (e) {
@@ -28,10 +28,10 @@ module.exports = plop => {
   plop.setActionType('prettify', (answers, config) => {
     const folderPath = `${path.join(
       __dirname,
-      '/../src/',
+      '../',
       config.path,
       plop.getHelper('properCase')(answers.name),
-      '**.js',
+      '**.js'
     )}`;
     exec(`npm run prettify -- "${folderPath}"`);
     return folderPath;

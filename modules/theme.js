@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
+import indigo from '@material-ui/core/colors/indigo';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
 
@@ -24,7 +24,7 @@ export const theme = createMuiTheme({
   },
   
   palette: {
-    primary: blue,
+    primary: { 500: '#656df1' }, //0f50bb
     secondary: pink,
     error: red,
   },

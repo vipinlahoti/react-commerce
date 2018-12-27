@@ -6,8 +6,9 @@ import { Switch, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import { Header } from 'components';
-import { LoginPage, HomePage } from 'containers';
+import { Header } from '/components';
+import { HomePage } from '/containers';
+import { LoginPage } from '/containers';
 
 const styles = theme => ({
   '@global': {
@@ -67,6 +68,7 @@ class App extends Component {
           defaultTitle="React.js Boilerplate"
         >
           <meta name="description" content="A React.js Boilerplate application" />
+          <link name="materialFont" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"/>
         </Helmet>
 
         <CssBaseline/>
@@ -76,7 +78,7 @@ class App extends Component {
         <main className={classes.content}>
           <Switch>
             <Route exact path="/" component={LoginPage} />
-            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/" component={HomePage} />
           </Switch>
         </main>
 

@@ -30,7 +30,7 @@ export const loginRequest = (data, history) => {
     })
 
     try {
-      // const res = await axios.post(`${URL}/signin`, { email, password });
+      // TODO: Login Service call
 
       dispatch({
         type: Constants.LOGIN_REQUEST_SUCCESS

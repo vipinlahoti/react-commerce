@@ -61,7 +61,7 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../src/components/{{properCase name}}/index.js',
+        path: '../components/{{properCase name}}/index.js',
         templateFile: componentTemplate,
         abortOnFail: true,
       },
@@ -71,7 +71,7 @@ module.exports = {
     if (data.wantLoadable) {
       actions.push({
         type: 'add',
-        path: '../src/components/{{properCase name}}/Loadable.js',
+        path: '../components/{{properCase name}}/Loadable.js',
         templateFile: './component/loadable.js.hbs',
         abortOnFail: true,
       });

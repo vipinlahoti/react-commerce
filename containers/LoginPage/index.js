@@ -10,8 +10,8 @@ import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reduxForm } from 'redux-form';
-import { loginRequest } from 'containers/App/actions';
-import { LoginForm } from 'components';
+import { loginRequest } from '/containers/App/actions';
+import { LoginForm } from '/components';
 
 import { LOGIN_FORM } from './constants';
 import validate from './validate';
